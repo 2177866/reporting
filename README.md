@@ -1,3 +1,4 @@
+
 # Laravel Complaint & Note Manager
 
 [![Packagist Version](https://img.shields.io/packagist/v/2177866/laravel-reporting)](https://packagist.org/packages/2177866/laravel-reporting)
@@ -6,89 +7,85 @@
 ![PHP 8+](https://img.shields.io/badge/PHP-8%2B-blue)
 [![MIT License](https://img.shields.io/badge/license-MIT-green)](https://opensource.org/licenses/MIT)
 
-**Laravel Complaint & Note Manager** — пакет для управления репортами (жалобами, заметками и т.д.) в проектах на Laravel. Модуль использует полиморфные отношения, позволяя легко добавлять функциональность для любых моделей.
+**Laravel Complaint & Note Manager** is a package for managing complaints, notes, and similar entities in Laravel projects. It uses polymorphic relationships for integration with any models.
 
-Отлично подходит для проектов, где требуется модерация контента или сбор жалоб от пользователей.
+Ideal for projects requiring content moderation or collecting user complaints.
 
-### Преимущества:
-- **Полиморфные отношения**: Быстрая интеграция с разными моделями.
-- **Метаданные**: Возможность сохранять дополнительные данные.
-- **Автоматическое удаление**: Управление сроками хранения устаревших записей.
-- **Кастомизация**: Настройки через конфигурационные файлы, наследование и модификация миграций.
+### Features:
+- **Polymorphic Relationships**: Easy integration with different models.
+- **Metadata**: Ability to save additional data.
+- **Automatic Deletion**: Manage outdated records.
+- **Customization**: Configure through configuration files and migrations.
 
 ---
 
-## Оглавление
+## Table of Contents
 
 1. [Laravel Complaint & Note Manager](#laravel-complaint--note-manager)
-2. [Установка](#установка)
-   - [Шаг 1: Установка через Composer](#шаг-1-установка-через-composer)
-   - [Шаг 2: Публикация конфигурации и миграций](#шаг-2-публикация-конфигурации-и-миграций)
-3. [Конфигурация](#конфигурация)
-   - [Основные настройки](#основные-настройки)
-   - [Кастомизация модели репортов](#кастомизация-модели-репортов)
-4. [Использование](#использование)
-   - [Добавление трейт Reportable](#шаг-1-добавление-трейт-reportable)
-   - [Создание репорта](#шаг-2-создание-репорта)
-   - [Получение репортов](#шаг-3-получение-репортов)
-   - [Удаление репорта](#дополнительный-пример-удаление-репорта)
-5. [Автоматическое удаление старых репортов](#автоматическое-удаление-старых-репортов)
-   - [Настройка планировщика](#настройка-планировщика)
-   - [Ручное удаление](#ручное-удаление)
-   - [Примечание](#примечание)
-6. [Лицензия](#лицензия)
+2. [Installation](#installation)
+   - [Step 1: Install via Composer](#step-1-install-via-composer)
+   - [Step 2: Publish Configuration and Migrations](#step-2-publish-configuration-and-migrations)
+3. [Configuration](#configuration)
+   - [Basic Settings](#basic-settings)
+   - [Customizing the Complaint Model](#customizing-the-complaint-model)
+4. [Usage](#usage)
+   - [Adding the Reportable Trait](#adding-the-reportable-trait)
+   - [Creating a Complaint](#creating-a-complaint)
+   - [Retrieving Complaints](#retrieving-complaints)
+   - [Deleting a Complaint](#deleting-a-complaint)
+5. [Automatic Deletion of Old Complaints](#automatic-deletion-of-old-complaints)
+   - [Scheduler Configuration](#scheduler-configuration)
+   - [Manual Deletion](#manual-deletion)
+6. [License](#license)
 
 ---
 
-## Установка
+## Installation
 
-### Шаг 1: Установка через Composer
+### Step 1: Install via Composer
 
 ```bash
 composer require 2177866/laravel-reporting
 ```
 
-### Шаг 2: Публикация конфигурации и миграций
+### Step 2: Publish Configuration and Migrations
 ```bash
 php artisan vendor:publish --provider="Alyakin\Reporting\ReportingServiceProvider"
 php artisan migrate
 ```
 
-Перед запуском миграций убедитесь, что настройки базы данных верны.
+Ensure that your database settings are correct before running migrations.
 
 ---
 
-## Конфигурация
+## Configuration
 
-После установки модуля файл конфигурации доступен в `config/reporting.php`. Если файла нет, выполните команду:
+After installing the module, the configuration file is available at `config/reporting.php`. If the file is missing, run the following command:
 
 ```bash
 php artisan vendor:publish --provider="Alyakin\Reporting\ReportingServiceProvider" --tag=config
 ```
 
-### Основные настройки
+### Basic Settings
 
-Пример содержимого файла config/reporting.php:
+Example configuration file content:
 
 ```php
 return [
-    // Модель для репортов
     'report_model' => \Alyakin\Reporting\Models\Report::class,
-
-    // Количество дней для хранения удаленных записей в базе данных
     'soft_delete_days' => 30,
 ];
 ```
 
-### Кастомизация модели репортов
+### Customizing the Complaint Model
 
-Если вам нужно расширить стандартную модель Report, обновите параметр report_model в конфигурации:
+If you need to extend the default model, update the `report_model` parameter in the configuration:
 
 ```php
 'report_model' => \App\Models\CustomReport::class,
 ```
 
-При этом ваша кастомная модель должна наследовать Alyakin\Reporting\Models\Report:
+The model must extend `Alyakin\Reporting\Models\Report`:
 
 ```php
 namespace App\Models;
@@ -97,17 +94,17 @@ use Alyakin\Reporting\Models\Report;
 
 class CustomReport extends Report
 {
-    // Добавьте свои кастомные методы или поля
+    // Your additional methods or fields
 }
 ```
 
 ---
 
-## Использование
+## Usage
 
-### Добавление трейт `Reportable`
+### Adding the `Reportable` Trait
 
-Добавьте трейт `Reportable` к любой модели, которая должна поддерживать репорты:
+Add the `Reportable` trait to any model that should support complaints:
 
 ```php
 use Alyakin\Reporting\Traits\Reportable;
@@ -115,91 +112,68 @@ use Alyakin\Reporting\Traits\Reportable;
 class Post extends Model
 {
     use Reportable;
-
-    // Логика вашей модели
 }
 ```
 
-### Создание репорта
+### Creating a Complaint
 
-Используйте связь `reports()` для создания репорта:
+Use the `reports()` relationship to create a complaint:
 
 ```php
 $post = Post::find(1);
 
 $report = $post->reports()->create([
-    'reason' => 'Спам',
-    'meta' => ['severity' => 'низкий'],
+    'reason' => 'Spam',
+    'meta' => ['severity' => 'low'],
 ]);
 ```
 
-### Получение репортов
+### Retrieving Complaints
 
-Для получения всех репортов модели:
+Retrieve all complaints for a model:
 
 ```php
 $reports = $post->reports;
 ```
 
-Для получения связанной модели из репорта:
+Retrieve the related model from a complaint:
 
 ```php
 $post = $report->reportable;
 ```
 
-### Удаление репорта
+### Deleting a Complaint
 
-Вы можете удалить репорт через стандартные методы Eloquent:
+Delete a complaint using standard Eloquent methods:
 
 ```php
 $report->delete();
 ```
 
-Репорт будет удален мягко (soft delete), если в модели включен `SoftDeletes`.
-
 ---
 
-## Автоматическое удаление старых репортов
+## Automatic Deletion of Old Complaints
 
-Модуль автоматически удаляет старые репорты на основе значения `soft_delete_days` в файле конфигурации. По умолчанию репорты удаляются через 30 дней после мягкого удаления.
+Old complaints are deleted based on the `soft_delete_days` parameter in the configuration (default is 30 days).
 
-### Настройка планировщика
+### Scheduler Configuration
 
-Для автоматической очистки старых репортов убедитесь, что команда планировщика (`scheduler`) включена. Добавьте следующую строку в метод `schedule` в файле `app/Console/Kernel.php`:
+Add the following line to `app/Console/Kernel.php`:
 
 ```php
 $schedule->command('model:prune')->daily();
 ```
 
-### Ручное удаление
+### Manual Deletion
 
-Вы можете вручную запустить процесс очистки репортов с помощью команды:
+Run the cleanup process manually:
 
 ```bash
 php artisan model:prune
 ```
 
-### Примечание
-
-Вы можете изменить логику очистки, если хотите учитывать дополнительные условия. Например, если в метаинформации репорта есть поле `resolved` с датой, которая больше чем `config('reporting.soft_delete_days')`, настройте метод `pruning` в вашей модели:
-
-```php
-use Illuminate\Database\Eloquent\Prunable;
-
-class CustomReport extends Report
-{
-    use Prunable;
-
-    // Кастомная логика определения репортов для удаления
-    protected function pruning()
-    {
-        return static::where('meta->resolved', '<', now()->subDays(config('reporting.soft_delete_days')));
-    }
-}
-```
-
 ---
 
-## Лицензия
+## License
 
-Этот пакет распространяется под лицензией [MIT](https://opensource.org/licenses/MIT). Вы можете использовать его, модифицировать и распространять в рамках условий данной лицензии.
+This package is distributed under the [MIT License](https://opensource.org/licenses/MIT).
