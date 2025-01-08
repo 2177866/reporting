@@ -1,0 +1,35 @@
+{
+    "name": "alyakin/reporting",
+    "description": "Add reports to your Laravel application with polymorphic relationships and UUID support",
+    "keywords": [
+        "alyakin",
+        "report",
+        "laravel"
+    ],
+    "homepage": "https://github.com/2177866/reporting",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Lyakin",
+            "email": "2177866@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "illuminate/support": "^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Alyakin\\Reporting\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Alyakin\\Reporting\\ReportingServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "stable"
+}
