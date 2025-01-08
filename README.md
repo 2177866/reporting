@@ -1,8 +1,8 @@
 
 # Laravel Complaint & Note Manager
 
-[![Packagist Version](https://img.shields.io/packagist/v/2177866/laravel-reporting)](https://packagist.org/packages/2177866/laravel-reporting)
-[![Downloads](https://img.shields.io/packagist/dt/2177866/laravel-reporting)](https://packagist.org/packages/2177866/laravel-reporting)
+[![Packagist Version](https://img.shields.io/packagist/v/2177866/laravel-reporting)](https://packagist.org/packages/alyakin/reporting)
+[![Downloads](https://img.shields.io/packagist/dt/2177866/laravel-reporting)](https://packagist.org/packages/alyakin/reporting)
 ![Laravel 10+](https://img.shields.io/badge/Laravel-10%2B-orange)
 ![PHP 8+](https://img.shields.io/badge/PHP-8%2B-blue)
 [![MIT License](https://img.shields.io/badge/license-MIT-green)](https://opensource.org/licenses/MIT)
@@ -45,7 +45,7 @@ Ideal for projects requiring content moderation or collecting user complaints.
 ### Step 1: Install via Composer
 
 ```bash
-composer require 2177866/laravel-reporting
+composer require alyakin/reporting
 ```
 
 ### Step 2: Publish Configuration and Migrations
