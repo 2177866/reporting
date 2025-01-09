@@ -3,14 +3,15 @@
 namespace Alyakin\Reporting\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Prunable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Report extends Model
 {
-    use SoftDeletes, Prunable, HasFactory;
+    use SoftDeletes, Prunable, HasFactory, HasUuids;
 
     /**
      * The attributes that are mass assignable.
