@@ -26,11 +26,6 @@ return new class extends Migration
             $table->json('meta')->nullable(); // Дополнительные метаданные
             $table->softDeletes(); // Поддержка soft delete
             $table->timestamps(); // created_at и updated_at
-
-            // Получение SQL через DB::getQueryLog()
-            // DB::listen(function ($query) {
-            //     dump($query->sql);
-            // });
         });
     }
 
