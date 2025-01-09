@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
 
-            // $table->uuid('id')->primary();
-            // $table->uuidMorphs('reportable');
-            // $table->uuid('user_id')->nullable()->index();
+            // $table->id('id');
+            $table->uuid('id')->primary();
 
-            $table->id();
-            $table->morphs('reportable');
-            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
+            // $table->morphs('reportable');
+            $table->uuidMorphs('reportable');
+
+            // $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->foreignUuid('user_id')->nullable()->constrained()->cascadeOnDelete();
 
             $table->string('reason'); // Причина жалобы
             $table->json('meta')->nullable(); // Дополнительные метаданные
