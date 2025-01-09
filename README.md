@@ -121,11 +121,12 @@ Use the `reports()` relationship to create a complaint:
 
 ```php
 $post = Post::find(1);
+$user = $request->user();
 
-$report = $post->reports()->create([
-    'reason' => 'Spam',
-    'meta' => ['severity' => 'low'],
-]);
+$report = $post->addReport([
+    'reason' => 'Спам',
+    'meta' => ['severity' => 'низкий'],
+], $user->id);
 ```
 
 ### Retrieving Complaints

@@ -126,11 +126,12 @@ class Post extends Model
 
 ```php
 $post = Post::find(1);
+$user = $request->user();
 
-$report = $post->reports()->create([
+$report = $post->addReport([
     'reason' => 'Спам',
     'meta' => ['severity' => 'низкий'],
-]);
+], $user->id);
 ```
 
 ### Получение репортов
