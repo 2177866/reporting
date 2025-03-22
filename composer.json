@@ -1,13 +1,18 @@
 {
     "name": "alyakin/reporting",
-    "description": "Add reports to your Laravel application with polymorphic relationships and UUID support",
+    "description": "Flexible Laravel package for attaching user reports to any model. Useful for moderation, feedback, and auditing.",
     "keywords": [
         "alyakin",
         "report",
+        "complaints",
+        "moderation",
+        "feedback",
+        "audit",
         "laravel"
     ],
     "homepage": "https://github.com/2177866/reporting",
     "license": "MIT",
+
     "authors": [
         {
             "name": "Alexander Lyakin",

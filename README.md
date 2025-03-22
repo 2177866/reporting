@@ -9,7 +9,7 @@
 
 **Laravel Complaint & Note Manager** is a package for managing complaints, notes, and similar entities in Laravel projects. It uses polymorphic relationships for integration with any models.
 
-Ideal for projects requiring content moderation or collecting user complaints.
+Ideal for social networks, e-commerce, and content moderation projects that require collecting and managing user complaints, reports, or note ([use cases](#use-cases)).
 
 ### Features:
 - **Polymorphic Relationships**: Easy integration with different models.
@@ -34,8 +34,9 @@ Ideal for projects requiring content moderation or collecting user complaints.
 5. [Automatic Deletion of Old Complaints](#automatic-deletion-of-old-complaints)
    - [Scheduler Configuration](#scheduler-configuration)
    - [Manual Deletion](#manual-deletion)
-6. [Want to Contribute?](#-want-to-contribute)
-7. [License](#license)
+6. [Use cases](#use-cases)
+7. [Want to Contribute?](#want-to-contribute)
+8. [License](#license)
 
 
 ## Installation
@@ -166,7 +167,17 @@ Run the cleanup process manually:
 php artisan model:prune
 ```
 
-## 🙌 Want to Contribute?
+## Use Cases
+
+Here are five different examples of how this package can be applied across various domains:
+
+1. **Social Networks:** Users can report posts or comments that violate guidelines...
+2. **E-commerce Platforms:** Customers can flag products or sellers...
+3. **Content Management Systems (CMS):** Readers can report offensive or incorrect content...
+4. **Customer Support Systems:** Users can submit complaints linked to their accounts or tickets...
+5. **Educational Platforms:** Students can report problems with course materials or instructors...
+
+## Want to Contribute?
 
 This package is open for community contributions!
 
@@ -176,7 +187,7 @@ You can:
 - Suggest a new feature or improvement by opening an issue
 - Fork the repository and submit a Pull Request
 
-### 🗺️ Current Roadmap Highlights
+### Current Roadmap Highlights
 
 - Add support for Laravel-style events (e.g. `ReportCreated`, `ReportDeleted`)
 - Artisan command to purge old reports (`reporting:purge`)
