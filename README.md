@@ -17,8 +17,6 @@ Ideal for projects requiring content moderation or collecting user complaints.
 - **Automatic Deletion**: Manage outdated records.
 - **Customization**: Configure through configuration files and migrations.
 
----
-
 ## Table of Contents
 
 1. [Laravel Complaint & Note Manager](#laravel-complaint--note-manager)
@@ -38,7 +36,6 @@ Ideal for projects requiring content moderation or collecting user complaints.
    - [Manual Deletion](#manual-deletion)
 6. [License](#license)
 
----
 
 ## Installation
 
@@ -56,7 +53,6 @@ php artisan migrate
 
 Ensure that your database settings are correct before running migrations.
 
----
 
 ## Configuration
 
@@ -97,8 +93,6 @@ class CustomReport extends Report
     // Your additional methods or fields
 }
 ```
-
----
 
 ## Usage
 
@@ -151,8 +145,6 @@ Delete a complaint using standard Eloquent methods:
 $report->delete();
 ```
 
----
-
 ## Automatic Deletion of Old Complaints
 
 Old complaints are deleted based on the `soft_delete_days` parameter in the configuration (default is 30 days).
@@ -173,7 +165,22 @@ Run the cleanup process manually:
 php artisan model:prune
 ```
 
----
+## 🙌 Want to Contribute?
+
+This package is open for community contributions!
+
+You can:
+- Explore the [open issues](https://github.com/2177866/reporting/issues) to see what's planned
+- Pick a task labeled [`good first issue`](https://github.com/2177866/reporting/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) or [`help wanted`](https://github.com/2177866/reporting/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+- Suggest a new feature or improvement by opening an issue
+- Fork the repository and submit a Pull Request
+
+### 🗺️ Current Roadmap Highlights
+
+- Add support for Laravel-style events (e.g. `ReportCreated`, `ReportDeleted`)
+- Artisan command to purge old reports (`reporting:purge`)
+
+We welcome contributions, feedback, and ideas! 😊
 
 ## License
 
