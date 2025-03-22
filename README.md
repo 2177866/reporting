@@ -34,7 +34,8 @@ Ideal for projects requiring content moderation or collecting user complaints.
 5. [Automatic Deletion of Old Complaints](#automatic-deletion-of-old-complaints)
    - [Scheduler Configuration](#scheduler-configuration)
    - [Manual Deletion](#manual-deletion)
-6. [License](#license)
+6. [Want to Contribute?](#-want-to-contribute)
+7. [License](#license)
 
 
 ## Installation
