@@ -15,14 +15,14 @@ jobs:
       matrix:
         include:
           - php: 8.0
-            laravel: "8.x"
-            testbench: "^6.0"
-          - php: 8.1
             laravel: "9.x"
             testbench: "^7.0"
-          - php: 8.2
+          - php: 8.1
             laravel: "10.x"
             testbench: "^8.0"
+          - php: 8.2
+            laravel: "11.x"
+            testbench: "^9.0"
 
     name: PHP ${{ matrix.php }} / Laravel ${{ matrix.laravel }}
 
@@ -35,11 +35,11 @@ jobs:
           php-version: ${{ matrix.php }}
           tools: composer:v2
 
-      - name: Install dependencies for Laravel ${{ matrix.laravel }}
+      - name: Require Laravel + Testbench
         run: |
           composer require "illuminate/support:${{ matrix.laravel }}" --no-update
           composer require "orchestra/testbench:${{ matrix.testbench }}" --dev --no-update
-          composer update --prefer-dist --no-interaction --no-progress
+          composer update --prefer-dist --no-interaction
 
-      - name: Run PHPUnit
+      - name: Run tests
         run: vendor/bin/phpunit
