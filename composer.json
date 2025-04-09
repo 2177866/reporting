@@ -40,6 +40,6 @@
     "require-dev": {
         "larastan/larastan": "2.x-dev",
         "orchestra/testbench": "8.x-dev",
-        "laravel/pint": "dev-main"
+        "laravel/pint": "1.13.0"
     }
 }

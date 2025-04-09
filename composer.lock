@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e2dcc548c923fa7ff546cfd155e0b6c0",
+    "content-hash": "eb9c78f5e21ff4b4151e9728c2e504d8",
     "packages": [
         {
             "name": "brick/math",
@@ -5092,12 +5092,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/larastan/larastan.git",
-                "reference": "607367a144b1e07397e6466c510a0819e8c7ae32"
+                "reference": "bca23cab3a2171cf2be481bed015f9ecb832ffc5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/larastan/larastan/zipball/607367a144b1e07397e6466c510a0819e8c7ae32",
-                "reference": "607367a144b1e07397e6466c510a0819e8c7ae32",
+                "url": "https://api.github.com/repos/larastan/larastan/zipball/bca23cab3a2171cf2be481bed015f9ecb832ffc5",
+                "reference": "bca23cab3a2171cf2be481bed015f9ecb832ffc5",
                 "shasum": ""
             },
             "require": {
@@ -5181,20 +5181,20 @@
                     "type": "github"
                 }
             ],
-            "time": "2025-04-09T08:15:07+00:00"
+            "time": "2025-04-09T12:23:55+00:00"
         },
         {
             "name": "laravel/pint",
-            "version": "dev-main",
+            "version": "v1.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/pint.git",
-                "reference": "80c31ebe2fdd2e7ef4143b5a86ae5970bf35d739"
+                "reference": "a19bd99c91b158f33a4c5ffe9653d17a921424de"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/pint/zipball/80c31ebe2fdd2e7ef4143b5a86ae5970bf35d739",
-                "reference": "80c31ebe2fdd2e7ef4143b5a86ae5970bf35d739",
+                "url": "https://api.github.com/repos/laravel/pint/zipball/a19bd99c91b158f33a4c5ffe9653d17a921424de",
+                "reference": "a19bd99c91b158f33a4c5ffe9653d17a921424de",
                 "shasum": ""
             },
             "require": {
@@ -5202,18 +5202,17 @@
                 "ext-mbstring": "*",
                 "ext-tokenizer": "*",
                 "ext-xml": "*",
-                "php": "^8.2.0"
+                "php": "^8.1.0"
             },
             "require-dev": {
-                "friendsofphp/php-cs-fixer": "^3.75.0",
-                "illuminate/view": "^11.44.2",
-                "larastan/larastan": "^3.3.1",
-                "laravel-zero/framework": "^11.36.1",
-                "mockery/mockery": "^1.6.12",
-                "nunomaduro/termwind": "^2.3",
-                "pestphp/pest": "^2.36.0"
+                "friendsofphp/php-cs-fixer": "^3.21.1",
+                "illuminate/view": "^10.5.1",
+                "laravel-zero/framework": "^10.1.2",
+                "mockery/mockery": "^1.5.1",
+                "nunomaduro/larastan": "^2.5.1",
+                "nunomaduro/termwind": "^1.15.1",
+                "pestphp/pest": "^2.4.0"
             },
-            "default-branch": true,
             "bin": [
                 "builds/pint"
             ],
@@ -5248,7 +5247,7 @@
                 "issues": "https://github.com/laravel/pint/issues",
                 "source": "https://github.com/laravel/pint"
             },
-            "time": "2025-04-08T22:46:13+00:00"
+            "time": "2023-09-05T15:45:33+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -7762,7 +7761,6 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "larastan/larastan": 20,
-        "laravel/pint": 20,
         "orchestra/testbench": 20
     },
     "prefer-stable": false,
