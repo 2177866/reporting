@@ -14,6 +14,9 @@ class Report extends Model
     use HasFactory, HasUuids, Prunable, SoftDeletes;
 
     protected $fillable = [
+        'id',
+        'reportable_type',
+        'reportable_id',
         'reason',
         'meta',
         'user_id',

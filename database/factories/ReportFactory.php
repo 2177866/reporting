@@ -15,6 +15,7 @@ class ReportFactory extends Factory
     public function definition()
     {
         return [
+            'id' => $this->faker->uuid,
             'reason' => $this->faker->sentence,
             'meta' => ['severity' => $this->faker->randomElement(['low', 'medium', 'high'])],
             'user_id' => null,

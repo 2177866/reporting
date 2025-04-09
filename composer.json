@@ -23,11 +23,20 @@
     "require": {
         "php": "^8.0"
     },
+
     "autoload": {
         "psr-4": {
-            "Alyakin\\Reporting\\": "src/"
+            "Alyakin\\Reporting\\": "src/",
+            "Alyakin\\Reporting\\Database\\Factories\\": "database/factories/"
         }
     },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Alyakin\\Reporting\\Tests\\": "tests/"
+        }
+    },
+
     "extra": {
         "laravel": {
             "providers": [
