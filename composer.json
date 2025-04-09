@@ -21,8 +21,7 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "illuminate/support": "^10.0"
+        "php": "^8.0"
     },
     "autoload": {
         "psr-4": {
@@ -36,10 +35,9 @@
             ]
         }
     },
-    "minimum-stability": "dev",
     "require-dev": {
-        "larastan/larastan": "2.x-dev",
-        "orchestra/testbench": "8.x-dev",
-        "laravel/pint": "1.13.0"
+        "orchestra/testbench": "^7.0",
+        "larastan/larastan": "^2.0",
+        "laravel/pint": "^1.13"
     }
 }
