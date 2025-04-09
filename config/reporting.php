@@ -11,7 +11,7 @@ return [
     | By default, it uses App\Models\User.
     |
     */
-    'user_model' => App\Models\User::class,
+    'user_model' => env('REPORTING_USER_MODEL', 'App\\Models\\User'),
 
     /*
     |--------------------------------------------------------------------------

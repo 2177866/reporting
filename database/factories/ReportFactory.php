@@ -5,6 +5,9 @@ namespace Alyakin\Reporting\Database\Factories;
 use Alyakin\Reporting\Models\Report;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+/**
+ * @extends Factory<Report>
+ */
 class ReportFactory extends Factory
 {
     protected $model = Report::class;

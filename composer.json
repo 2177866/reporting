@@ -36,5 +36,10 @@
             ]
         }
     },
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "require-dev": {
+        "larastan/larastan": "2.x-dev",
+        "orchestra/testbench": "8.x-dev",
+        "laravel/pint": "dev-main"
+    }
 }

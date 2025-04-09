@@ -2,48 +2,39 @@
 
 namespace Alyakin\Reporting\Models;
 
+use Alyakin\Reporting\Database\Factories\ReportFactory;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Prunable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-use Illuminate\Database\Eloquent\Concerns\HasUuids;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 class Report extends Model
 {
-    use SoftDeletes, Prunable, HasFactory, HasUuids;
+    use HasFactory, HasUuids, Prunable, SoftDeletes;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
     protected $fillable = [
         'reason',
         'meta',
         'user_id',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
     protected $casts = [
         'meta' => 'array',
     ];
 
-
+    /**
+     * @return \Illuminate\Database\Eloquent\Factories\Factory<Report>
+     */
     public static function newFactory()
     {
-        return \Alyakin\Reporting\Database\Factories\ReportFactory::new();
+        return ReportFactory::new();
     }
-
 
     /**
      * Polymorphic relationship: the model being reported.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphTo
+     * @return \Illuminate\Database\Eloquent\Relations\MorphTo<Model, self>
      */
     public function reportable()
     {
@@ -53,20 +44,24 @@ class Report extends Model
     /**
      * Relationship: the user who submitted the report.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo<\Illuminate\Foundation\Auth\User, self>
      */
     public function user()
     {
-        return $this->belongsTo(config('reporting.user_model'));
+        /** @var class-string<\Illuminate\Foundation\Auth\User> $userModel */
+        $userModel = config('reporting.user_model', 'App\\Models\\User');
+
+        return $this->belongsTo($userModel);
     }
 
     /**
      * Define the query for records that should be pruned.
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return \Illuminate\Database\Eloquent\Builder<self>
      */
     public function prunable()
     {
+        /** @var null|int */
         $days = config('reporting.soft_delete_days', 31);
 
         return $days !== null

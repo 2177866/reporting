@@ -2,6 +2,10 @@
 # Laravel Complaint & Note Manager
 
 [![Packagist Version](https://img.shields.io/packagist/v/alyakin/reporting)](https://packagist.org/packages/alyakin/reporting)
+![PHPUnit Tests](https://github.com/2177866/reporting/actions/workflows/phpunit.yml/badge.svg)
+![Larastan Level](https://img.shields.io/badge/Larastan-level%209-blueviolet)
+![Larastan Analysis](https://github.com/2177866/reporting/actions/workflows/larastan.yml/badge.svg)
+![Laravel Pint](https://github.com/2177866/reporting/actions/workflows/pint.yml/badge.svg)
 [![Downloads](https://img.shields.io/packagist/dt/alyakin/reporting)](https://packagist.org/packages/alyakin/reporting)
 ![Laravel 10+](https://img.shields.io/badge/Laravel-10%2B-orange)
 ![PHP 8+](https://img.shields.io/badge/PHP-8%2B-blue)

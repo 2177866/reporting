@@ -9,8 +9,6 @@ trait Reportable
 {
     /**
      * Define a polymorphic one-to-many relationship with the report model.
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function reports(): MorphMany
     {
@@ -22,8 +20,7 @@ trait Reportable
     /**
      * Add a new report to the model.
      *
-     * @param array $attributes
-     * @param int|string|null $userId
+     * @param  int|string|null  $userId
      * @return \Illuminate\Database\Eloquent\Model
      */
     public function addReport(array $attributes, $userId = null)

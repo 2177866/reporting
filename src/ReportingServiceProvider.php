@@ -13,17 +13,16 @@ class ReportingServiceProvider extends ServiceProvider
     {
         // Публикация конфигурации
         $this->publishes([
-            __DIR__ . '/../config/reporting.php' => config_path('reporting.php'),
+            __DIR__.'/../config/reporting.php' => config_path('reporting.php'),
         ], 'config');
 
         // Публикация миграций
         $this->publishes([
-            __DIR__ . '/../database/migrations/' => database_path('migrations'),
+            __DIR__.'/../database/migrations/' => database_path('migrations'),
         ], 'migrations');
 
-
         // Загрузка миграций
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
     }
 
     /**
@@ -33,7 +32,7 @@ class ReportingServiceProvider extends ServiceProvider
     {
         // Слияние конфигураций пакета с конфигом приложения
         $this->mergeConfigFrom(
-            __DIR__ . '/../config/reporting.php',
+            __DIR__.'/../config/reporting.php',
             'reporting'
         );
     }
