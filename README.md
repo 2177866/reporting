@@ -39,8 +39,9 @@ Ideal for social networks, e-commerce, and content moderation projects that requ
    - [Scheduler Configuration](#scheduler-configuration)
    - [Manual Deletion](#manual-deletion)
 6. [Use cases](#use-cases)
-7. [Want to Contribute?](#want-to-contribute)
-8. [License](#license)
+7. [Testing](#testing)
+8. [Want to Contribute?](#want-to-contribute)
+9. [License](#license)
 
 
 ## Installation
@@ -181,6 +182,38 @@ Here are five different examples of how this package can be applied across vario
 4. **Customer Support Systems:** Users can submit complaints linked to their accounts or tickets...
 5. **Educational Platforms:** Students can report problems with course materials or instructors...
 
+## Testing
+
+This package includes a test suite to ensure functionality works as expected. To run the tests:
+
+```bash
+composer test
+```
+
+### PHPUnit
+
+The package uses PHPUnit for feature and unit tests. You can run PHPUnit tests specifically with:
+
+```bash
+./vendor/bin/phpunit
+```
+
+### Static Analysis
+
+We use Larastan (PHPStan for Laravel) for static code analysis:
+
+```bash
+./vendor/bin/phpstan analyse
+```
+
+### Code Style
+
+Laravel Pint is used for code style enforcement:
+
+```bash
+./vendor/bin/pint
+```
+
 ## Want to Contribute?
 
 This package is open for community contributions!
@@ -190,6 +223,26 @@ You can:
 - Pick a task labeled [`good first issue`](https://github.com/2177866/reporting/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) or [`help wanted`](https://github.com/2177866/reporting/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
 - Suggest a new feature or improvement by opening an issue
 - Fork the repository and submit a Pull Request
+
+### Contribution Requirements
+
+When contributing to this package, please ensure:
+
+1. **Code Style**: All code must follow our style guidelines. Run Laravel Pint before submitting:
+   ```bash
+   ./vendor/bin/pint
+   ```
+
+2. **Static Analysis**: Code must pass Larastan level 9 analysis:
+   ```bash
+   ./vendor/bin/phpstan analyse
+   ```
+
+3. **Test Coverage**: All new features or bug fixes must include tests.
+
+4. **Documentation**: Update the README.md and other documentation to reflect any changes in functionality.
+
+5. **Feature Branches**: Create a feature branch for your changes and submit a pull request against the main branch.
 
 ### Current Roadmap Highlights
 

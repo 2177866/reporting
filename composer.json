@@ -35,6 +35,11 @@
             ]
         }
     },
+    "scripts": {
+        "test": "phpunit",
+        "analyse": "phpstan analyse",
+        "format": "pint"
+    },
     "require-dev": {
         "orchestra/testbench": "*",
         "larastan/larastan": "*",
