@@ -3,7 +3,7 @@
 
 [![Packagist Version](https://img.shields.io/packagist/v/alyakin/reporting)](https://packagist.org/packages/alyakin/reporting)
 [![Downloads](https://img.shields.io/packagist/dt/alyakin/reporting)](https://packagist.org/packages/alyakin/reporting)
-![Laravel 10+](https://img.shields.io/badge/Laravel-10%2B-orange)
+![Laravel 9+](https://img.shields.io/badge/Laravel-10%2B-orange)
 ![PHP 8+](https://img.shields.io/badge/PHP-8%2B-blue)
 [![MIT License](https://img.shields.io/badge/license-MIT-green)](LICENCE)
 
@@ -26,6 +26,7 @@ Ideal for social networks, e-commerce, and content moderation projects that requ
 
 1. [Laravel Complaint & Note Manager](#laravel-complaint--note-manager)
 2. [Installation](#installation)
+   - [Requirements ](#requirements)
    - [Step 1: Install via Composer](#step-1-install-via-composer)
    - [Step 2: Publish Configuration and Migrations](#step-2-publish-configuration-and-migrations)
 3. [Configuration](#configuration)
@@ -46,6 +47,11 @@ Ideal for social networks, e-commerce, and content moderation projects that requ
 
 
 ## Installation
+
+### Requirements
+
+- PHP ^8.0
+- Laravel ^9.0, ^10.0, ^11.0
 
 ### Step 1: Install via Composer
 
