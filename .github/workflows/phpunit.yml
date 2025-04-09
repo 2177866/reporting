@@ -1,18 +1,40 @@
-name: PHPUnit Tests
+name: PHPUnit
 
-on: [push, pull_request]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  phpunit:
-    name: PHPUnit Tests
+  test:
     runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.1', '8.2']
+        laravel: ['8.x', '9.x', '10.x']
+
+    name: PHP ${{ matrix.php }} / Laravel ${{ matrix.laravel }}
+
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.1'
-      - name: Install Dependencies
-        run: composer install --no-progress --prefer-dist
-      - name: Run PHPUnit
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, bcmath
+          coverage: none
+
+      - name: Configure Laravel version constraints
+        run: |
+          composer require "illuminate/support:${{ matrix.laravel }}" --no-update
+          composer require "orchestra/testbench:${{ matrix.laravel }}" --dev --no-update
+
+      - name: Install dependencies
+        run: composer update --prefer-dist --no-interaction --no-progress
+
+      - name: Run tests
         run: vendor/bin/phpunit
